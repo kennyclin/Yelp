@@ -1,5 +1,5 @@
 # Yelp
-This is a Yelp search app using the [Yelp API](http://developer.rottentomatoes.com/docs/read/JSON).
+This is a Yelp search app using the [Yelp API](https://github.com/Yelp/yelp-api/tree/master/v2/objective-c).
 
 Time spent:  hours
 
