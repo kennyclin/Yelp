@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5370A5C1B34796B00203866 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5370A5B1B34796B00203866 /* SearchViewController.m */; };
+		C5370A5F1B347B7E00203866 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5370A5E1B347B7E00203866 /* FilterViewController.m */; };
 		C538FCC11B32AFAE00488F2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C538FCC01B32AFAE00488F2A /* main.m */; };
 		C538FCC41B32AFAE00488F2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C538FCC31B32AFAE00488F2A /* AppDelegate.m */; };
 		C538FCC71B32AFAE00488F2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C538FCC61B32AFAE00488F2A /* ViewController.m */; };
@@ -27,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5370A5A1B34796B00203866 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		C5370A5B1B34796B00203866 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		C5370A5D1B347B7E00203866 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		C5370A5E1B347B7E00203866 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		C538FCBB1B32AFAE00488F2A /* Yelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C538FCBF1B32AFAE00488F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C538FCC01B32AFAE00488F2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +92,10 @@
 				C538FCC51B32AFAE00488F2A /* ViewController.h */,
 				C538FCC61B32AFAE00488F2A /* ViewController.m */,
 				C538FCC81B32AFAE00488F2A /* Main.storyboard */,
+				C5370A5D1B347B7E00203866 /* FilterViewController.h */,
+				C5370A5E1B347B7E00203866 /* FilterViewController.m */,
+				C5370A5A1B34796B00203866 /* SearchViewController.h */,
+				C5370A5B1B34796B00203866 /* SearchViewController.m */,
 				C538FCCB1B32AFAE00488F2A /* Images.xcassets */,
 				C538FCCD1B32AFAE00488F2A /* LaunchScreen.xib */,
 				C538FCBE1B32AFAE00488F2A /* Supporting Files */,
@@ -221,6 +231,8 @@
 			files = (
 				C538FCC71B32AFAE00488F2A /* ViewController.m in Sources */,
 				C538FCC41B32AFAE00488F2A /* AppDelegate.m in Sources */,
+				C5370A5F1B347B7E00203866 /* FilterViewController.m in Sources */,
+				C5370A5C1B34796B00203866 /* SearchViewController.m in Sources */,
 				C538FCC11B32AFAE00488F2A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +428,7 @@
 				C538FCE01B32AFAE00488F2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C538FCE11B32AFAE00488F2A /* Build configuration list for PBXNativeTarget "YelpTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +437,7 @@
 				C538FCE31B32AFAE00488F2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
