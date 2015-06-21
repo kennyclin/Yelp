@@ -15,6 +15,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.nameLabel.preferredMaxLayoutWidth=self.nameLabel.frame.size.width;
+    self.thumbImageView.layer.cornerRadius=3;
+    self.thumbImageView.clipsToBounds=TRUE;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,6 +37,11 @@
     self.addressLabel.text=self.businessModel.address;
     self.categoryLabel.text=self.businessModel.categories;
     
+}
+
+-(void) layoutSubviews {
+    [super layoutSubviews];
+    self.nameLabel.preferredMaxLayoutWidth=self.nameLabel.frame.size.width;
 }
 
 @end

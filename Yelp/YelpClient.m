@@ -33,8 +33,8 @@ NSString * const kYelpTokenSecret = @"P2lv-9M7483HpINwXu22gBfW4q0";
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
-  //  NSDictionary *parameters = @{@"term": term, @"ll" : @"37.774866,-122.394556"};
-    NSDictionary *parameters = @{@"term": term, @"ll" : @"25.022642,121.531197"};  // home
+    NSDictionary *parameters = @{@"term": term, @"ll" : @"37.774866,-122.394556"};   // Bay Area?
+   // NSDictionary *parameters = @{@"term": term, @"ll" : @"25.022642,121.531197"};  // home
     
     return [self GET:@"search" parameters:parameters success:success failure:failure];
 }
