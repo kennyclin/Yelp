@@ -11,4 +11,5 @@
 @interface SearchViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *filterButton;
 @property (strong, nonatomic) UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

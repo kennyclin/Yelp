@@ -7,19 +7,49 @@
 //
 
 #import "SearchViewController.h"
+#import "YelpClient.h"
+#import "Business.h"
+#import "BusinessCell.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) YelpClient *yelpClient;
+@property (nonatomic, strong) NSArray *businessList;
 
 @end
 
 @implementation SearchViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.searchBar=[[UISearchBar alloc] init];
     self.navigationItem.titleView=self.searchBar;
-    
-    
+    self.yelpClient=[[YelpClient alloc] initWithDefaultKey];
+    [self.yelpClient searchWithTerm:@"Thai" success:^(AFHTTPRequestOperation *operation, id response) {
+        //NSLog(@"response: %@", response);
+        NSArray *businessDictionaries=response[@"businesses"];
+        self.businessList=[Business businessesWithDictionaries:businessDictionaries];
+       // NSLog(@"businessList:%@", self.businessList);
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [error description]);
+    }];
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"BusinessCell" bundle:nil] forCellReuseIdentifier:@"BusinessCell"];
+    //self.tableView.rowHeight=UITableViewAutomaticDimension;
+}
+// implmentation for UITableView datasource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.businessList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BusinessCell *cell=[tableView dequeueReusableCellWithIdentifier:@"BusinessCell"];
+    cell.businessModel=self.businessList[indexPath.row];
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
