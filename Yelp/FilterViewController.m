@@ -7,8 +7,9 @@
 //
 
 #import "FilterViewController.h"
+#import "FilterItemCell.h"
 
-@interface FilterViewController ()
+@interface FilterViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -16,9 +17,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"FilterItemCell" bundle:nil] forCellReuseIdentifier:@"FilterItemCell"];
     
    // [self.navigationItem.backBarButtonItem setEnabled:FALSE];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    FilterItemCell *cell=[tableView dequeueReusableCellWithIdentifier:@"FilterItemCell" forIndexPath:indexPath];
+    cell.itemLabel.text=[NSString stringWithFormat:@"filter item %d",indexPath.row];
+    return cell;
+}
+
+// Default is 1 if not implemented
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 4;
+}
+
+// fixed font style. use custom view (UILabel) if you want something different
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [NSString stringWithFormat:@"Section %d", section];
+}
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+    
+}*/
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem.backBarButtonItem setEnabled:FALSE];
@@ -34,8 +63,8 @@
 }
 - (IBAction)tapSearch:(UIButton *)sender{
     [self.navigationController popToRootViewControllerAnimated:TRUE];
-    
 }
+
 /*
 #pragma mark - Navigation
 

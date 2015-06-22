@@ -25,6 +25,7 @@
     [super viewDidLoad];
     self.searchBar=[[UISearchBar alloc] init];
     self.navigationItem.titleView=self.searchBar;
+    [self formatFilterButton];
     self.yelpClient=[[YelpClient alloc] initWithDefaultKey];
     [self.yelpClient searchWithTerm:@"Thai" success:^(AFHTTPRequestOperation *operation, id response) {
         //NSLog(@"response: %@", response);
@@ -40,6 +41,18 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"BusinessCell" bundle:nil] forCellReuseIdentifier:@"BusinessCell"];
     //self.tableView.rowHeight=UITableViewAutomaticDimension;
 }
+
+-(void) formatFilterButton {
+    self.filterButton.layer.cornerRadius = 8.0f;
+    self.filterButton.layer.masksToBounds = NO;
+    self.filterButton.layer.borderWidth = 1.0f;
+    
+    self.filterButton.layer.shadowColor = [UIColor whiteColor].CGColor;
+    self.filterButton.layer.shadowOpacity = 0.8;
+    self.filterButton.layer.shadowRadius = 12;
+    self.filterButton.layer.shadowOffset = CGSizeMake(20.0f, 20.0f);
+}
+
 // implmentation for UITableView datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

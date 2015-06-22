@@ -21,6 +21,8 @@
 		C59EF92F1B35A05F00F3FC99 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = C59EF92E1B35A05F00F3FC99 /* Business.m */; };
 		C59EF9371B35BFFD00F3FC99 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C59EF9351B35BFFD00F3FC99 /* BusinessCell.m */; };
 		C59EF9381B35BFFD00F3FC99 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59EF9361B35BFFD00F3FC99 /* BusinessCell.xib */; };
+		C5D1354F1B38091000402321 /* FilterItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D1354D1B38091000402321 /* FilterItemCell.m */; };
+		C5D135501B38091000402321 /* FilterItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D1354E1B38091000402321 /* FilterItemCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		C59EF9341B35BFFD00F3FC99 /* BusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCell.h; sourceTree = "<group>"; };
 		C59EF9351B35BFFD00F3FC99 /* BusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCell.m; sourceTree = "<group>"; };
 		C59EF9361B35BFFD00F3FC99 /* BusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
+		C5D1354C1B38091000402321 /* FilterItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterItemCell.h; sourceTree = "<group>"; };
+		C5D1354D1B38091000402321 /* FilterItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterItemCell.m; sourceTree = "<group>"; };
+		C5D1354E1B38091000402321 /* FilterItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterItemCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +179,9 @@
 				C59EF9341B35BFFD00F3FC99 /* BusinessCell.h */,
 				C59EF9351B35BFFD00F3FC99 /* BusinessCell.m */,
 				C59EF9361B35BFFD00F3FC99 /* BusinessCell.xib */,
+				C5D1354C1B38091000402321 /* FilterItemCell.h */,
+				C5D1354D1B38091000402321 /* FilterItemCell.m */,
+				C5D1354E1B38091000402321 /* FilterItemCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -269,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D135501B38091000402321 /* FilterItemCell.xib in Resources */,
 				C538FCCA1B32AFAE00488F2A /* Main.storyboard in Resources */,
 				C59EF9381B35BFFD00F3FC99 /* BusinessCell.xib in Resources */,
 				C538FCCF1B32AFAE00488F2A /* LaunchScreen.xib in Resources */,
@@ -323,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5D1354F1B38091000402321 /* FilterItemCell.m in Sources */,
 				C538FCC71B32AFAE00488F2A /* ViewController.m in Sources */,
 				C538FCC41B32AFAE00488F2A /* AppDelegate.m in Sources */,
 				C59EF92B1B35958800F3FC99 /* YelpClient.m in Sources */,

@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="l0C-qm-PV9" id="VGV-N7-STk"/>
                         <outlet property="searchButton" destination="ilL-Di-vOk" id="MAu-Qf-jUm"/>
+                        <outlet property="tableView" destination="U5o-Vb-HR7" id="SKH-Fg-O90"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKh-QE-41P" userLabel="First Responder" sceneMemberID="firstResponder"/>
