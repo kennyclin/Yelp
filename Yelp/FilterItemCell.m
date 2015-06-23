@@ -8,7 +8,7 @@
 
 #import "FilterItemCell.h"
 
-@interface FilterItemCell()
+@interface FilterItemCell() <FilterItemCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 
@@ -17,6 +17,7 @@
 @implementation FilterItemCell
 - (void)awakeFromNib {
     // Initialization code
+    self.delegate=self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -37,4 +38,15 @@
 - (IBAction)switchValueChanged:(UISwitch *)sender {
     [self.delegate filterItemCell:self didUpdateValue:self.toggleSwitch.on];
 }
+
+-(void) filterItemCell:(FilterItemCell *)cell didUpdateValue:(BOOL) value{
+    cell.itemModel.selected=value;
+}
+
+-(void) setItemModel:(FilterItem *)itemModel {
+    _itemModel=itemModel;
+    self.itemLabel.text=itemModel.title;
+    [self setOn:itemModel.selected];
+}
+
 @end

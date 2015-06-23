@@ -58,8 +58,7 @@
     FilterItemCell *cell=[tableView dequeueReusableCellWithIdentifier:@"FilterItemCell" forIndexPath:indexPath];
     NSArray *mysec=self.sections[indexPath.section];
     FilterItem *item=mysec[indexPath.row];
-    cell.itemLabel.text=item.title;
-    [cell setOn:item.selected];
+    [cell setItemModel:item];
     return cell;
 }
 
@@ -88,15 +87,19 @@
 }
 
 - (IBAction)tapCancel:(UIButton *)sender{
-    [self.navigationController popToRootViewControllerAnimated:FALSE];
+   [self.navigationController popToRootViewControllerAnimated:FALSE];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)tapSearch:(UIButton *)sender{
+    [self updateFilter];
+    [self.delegate filterViewController:self didUpdateFilter:self.filters];
     [self.navigationController popToRootViewControllerAnimated:TRUE];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void) initSections{
     self.sections=[[NSMutableArray alloc] initWithCapacity:4];
     self.sections[0]=[[NSMutableArray alloc] initWithCapacity:1];
-    self.sections[0][0]=[[FilterItem alloc] initWithValues:@"deals_filter" code:@"offeringDeal" title:@"Offering a Deal" checked:NO];
+    self.sections[0][0]=[[FilterItem alloc] initWithValues:@"deals_filter" code:@"true" title:@"Offering a Deal" checked:NO];
     
     //distance (radius)
     self.sections[1]=[[NSMutableArray alloc] initWithCapacity:5];
@@ -114,6 +117,22 @@
     
     [self initCategories];
     
+}
+-(void) updateFilter{
+    self.filters = [[NSMutableDictionary alloc] init];
+    for (int i=0; i<self.sections.count; i++){
+        for (FilterItem *item in self.sections[i]){
+            if (item.selected){
+                if (i==3){ //category
+                    if (self.filters[item.key])
+                        [self.filters setValue:[NSString stringWithFormat:@"%@, %@", self.filters[item.key], item.code] forKey:item.key];
+                    else [self.filters setValue:item.code forKey:item.key];
+                } else {
+                    [self.filters setValue:item.code forKey:item.key];
+                }
+            }
+        }
+    }
 }
 -(void) initCategories{
     NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString: @"https://raw.githubusercontent.com/Yelp/yelp-api/master/category_lists/en/category.json"]];

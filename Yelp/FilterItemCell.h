@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterItem.h"
 
 @class FilterItemCell;
 
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) id<FilterItemCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *itemLabel;
 @property (assign, nonatomic) BOOL on;
+@property (strong, nonatomic) FilterItem *itemModel;
 
 - (IBAction)switchValueChanged:(UISwitch *)sender;
 -(void) setOn:(BOOL)on animated:(BOOL)animated;

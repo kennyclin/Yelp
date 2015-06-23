@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class FilterViewController;
+
+@protocol FilterViewDelegate <NSObject>
+
+-(void) filterViewController:(FilterViewController *) controller didUpdateFilter:(NSDictionary*) filters;
+
+@end
+
 @interface FilterViewController : UIViewController
+
+@property (strong, nonatomic) NSMutableDictionary *filters;
+@property (weak, nonatomic) id<FilterViewDelegate> delegate;
 
 - (IBAction)tapCancel:(UIButton *)sender;
 - (IBAction)tapSearch:(UIButton *)sender;

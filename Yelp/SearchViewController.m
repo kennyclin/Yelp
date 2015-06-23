@@ -10,8 +10,9 @@
 #import "YelpClient.h"
 #import "Business.h"
 #import "BusinessCell.h"
+#import "FilterViewController.h"
 
-@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, FilterViewDelegate>
 
 @property (nonatomic, strong) YelpClient *yelpClient;
 @property (nonatomic, strong) NSArray *businessList;
@@ -70,14 +71,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+-(void) filterViewController:(FilterViewController *)controller didUpdateFilter:(NSDictionary *)filters{
+    NSLog(@"%@", filters);
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    FilterViewController *vc=[segue destinationViewController];
+    vc.delegate=self;
 }
-*/
+
 
 @end
