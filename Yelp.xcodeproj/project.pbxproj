@@ -23,6 +23,7 @@
 		C59EF9381B35BFFD00F3FC99 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C59EF9361B35BFFD00F3FC99 /* BusinessCell.xib */; };
 		C5D1354F1B38091000402321 /* FilterItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D1354D1B38091000402321 /* FilterItemCell.m */; };
 		C5D135501B38091000402321 /* FilterItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D1354E1B38091000402321 /* FilterItemCell.xib */; };
+		C5D135561B386B9D00402321 /* FilterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D135551B386B9D00402321 /* FilterItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		C5D1354C1B38091000402321 /* FilterItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterItemCell.h; sourceTree = "<group>"; };
 		C5D1354D1B38091000402321 /* FilterItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterItemCell.m; sourceTree = "<group>"; };
 		C5D1354E1B38091000402321 /* FilterItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterItemCell.xib; sourceTree = "<group>"; };
+		C5D135541B386B9D00402321 /* FilterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterItem.h; sourceTree = "<group>"; };
+		C5D135551B386B9D00402321 /* FilterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 			children = (
 				C59EF92D1B35A05F00F3FC99 /* Business.h */,
 				C59EF92E1B35A05F00F3FC99 /* Business.m */,
+				C5D135541B386B9D00402321 /* FilterItem.h */,
+				C5D135551B386B9D00402321 /* FilterItem.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			files = (
 				C5D1354F1B38091000402321 /* FilterItemCell.m in Sources */,
 				C538FCC71B32AFAE00488F2A /* ViewController.m in Sources */,
+				C5D135561B386B9D00402321 /* FilterItem.m in Sources */,
 				C538FCC41B32AFAE00488F2A /* AppDelegate.m in Sources */,
 				C59EF92B1B35958800F3FC99 /* YelpClient.m in Sources */,
 				C59EF92F1B35A05F00F3FC99 /* Business.m in Sources */,

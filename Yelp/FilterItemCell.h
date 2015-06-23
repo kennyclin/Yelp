@@ -8,10 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@class FilterItemCell;
+
+@protocol FilterItemCellDelegate <NSObject>
+
+-(void) filterItemCell:(FilterItemCell *)cell didUpdateValue:(BOOL) value;
+
+
+@end
+
 @interface FilterItemCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
+
+@property (weak, nonatomic) id<FilterItemCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *itemLabel;
+@property (assign, nonatomic) BOOL on;
+
 - (IBAction)switchValueChanged:(UISwitch *)sender;
+-(void) setOn:(BOOL)on animated:(BOOL)animated;
+
 
 @end

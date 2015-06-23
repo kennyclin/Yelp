@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FilterViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIButton *searchButton;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 - (IBAction)tapCancel:(UIButton *)sender;
 - (IBAction)tapSearch:(UIButton *)sender;
 

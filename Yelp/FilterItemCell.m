@@ -8,6 +8,12 @@
 
 #import "FilterItemCell.h"
 
+@interface FilterItemCell()
+
+@property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
+
+@end
+
 @implementation FilterItemCell
 - (void)awakeFromNib {
     // Initialization code
@@ -19,6 +25,16 @@
     // Configure the view for the selected state
 }
 
+-(void) setOn:(BOOL)on{
+    [self setOn:on animated:NO];
+}
+
+-(void) setOn:(BOOL)on animated:(BOOL) animated{
+    _on=on;
+    [self.toggleSwitch setOn:on animated:animated];
+}
+
 - (IBAction)switchValueChanged:(UISwitch *)sender {
+    [self.delegate filterItemCell:self didUpdateValue:self.toggleSwitch.on];
 }
 @end
