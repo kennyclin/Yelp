@@ -17,6 +17,7 @@
         _code=code;
         _title=title;
         _selected=defaultSelected;
+        _justOn=NO;
     }
     return self;
 }

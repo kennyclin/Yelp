@@ -24,5 +24,7 @@
 - (IBAction)tapCancel:(UIButton *)sender;
 - (IBAction)tapSearch:(UIButton *)sender;
 
+-(void) updateFilterItems;
+
 
 @end

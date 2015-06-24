@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) YelpClient *yelpClient;
 @property (nonatomic, strong) NSArray *businessList;
+@property (nonatomic, weak) NSDictionary *filters;
 
 @end
 
@@ -28,19 +29,31 @@
     self.navigationItem.titleView=self.searchBar;
     [self formatFilterButton];
     self.yelpClient=[[YelpClient alloc] initWithDefaultKey];
-    [self.yelpClient searchWithTerm:@"Thai" success:^(AFHTTPRequestOperation *operation, id response) {
-        //NSLog(@"response: %@", response);
-        NSArray *businessDictionaries=response[@"businesses"];
-        self.businessList=[Business businessesWithDictionaries:businessDictionaries];
-       // NSLog(@"businessList:%@", self.businessList);
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error: %@", [error description]);
-    }];
+    [self applyFilter];
+    
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     [self.tableView registerNib:[UINib nibWithNibName:@"BusinessCell" bundle:nil] forCellReuseIdentifier:@"BusinessCell"];
     //self.tableView.rowHeight=UITableViewAutomaticDimension;
+}
+
+-(void) applyFilter {
+    NSDictionary *defaultFilter=@{@"term": @"Thai", @"ll" : @"37.774866,-122.394556"};   // Bay Area?
+    if (self.filters==nil || self.filters.count==0){
+        self.filters=defaultFilter;
+    }
+    if (self.yelpClient==nil) self.yelpClient=[[YelpClient alloc] initWithDefaultKey];
+    [self.yelpClient searchWithTerms:self.filters success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"filters: %@", self.filters);
+        NSLog(@"response: %@", response);
+        NSArray *businessDictionaries=response[@"businesses"];
+        self.businessList=[Business businessesWithDictionaries:businessDictionaries];
+        // NSLog(@"businessList:%@", self.businessList);
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error: %@", [error description]);
+    }];
+    
 }
 
 -(void) formatFilterButton {
@@ -73,6 +86,8 @@
 
 -(void) filterViewController:(FilterViewController *)controller didUpdateFilter:(NSDictionary *)filters{
     NSLog(@"%@", filters);
+    self.filters=filters;
+    [self applyFilter];
 }
 
 

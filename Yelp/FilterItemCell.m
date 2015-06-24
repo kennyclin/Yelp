@@ -7,6 +7,7 @@
 //
 
 #import "FilterItemCell.h"
+#import "FilterViewController.h"
 
 @interface FilterItemCell() <FilterItemCellDelegate>
 
@@ -17,7 +18,7 @@
 @implementation FilterItemCell
 - (void)awakeFromNib {
     // Initialization code
-    self.delegate=self;
+   // self.delegate=self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -41,6 +42,7 @@
 
 -(void) filterItemCell:(FilterItemCell *)cell didUpdateValue:(BOOL) value{
     cell.itemModel.selected=value;
+    cell.itemModel.justOn=value;
 }
 
 -(void) setItemModel:(FilterItem *)itemModel {

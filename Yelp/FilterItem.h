@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSObject* code;
 @property (strong, nonatomic) NSString* title;
 @property (assign, nonatomic) BOOL selected;
+@property (assign, nonatomic) BOOL justOn;
 
 -(id) initWithValues:(NSString*) key code:(NSObject*) code title:(NSString*) title checked:(BOOL) defaultSelected;
 
