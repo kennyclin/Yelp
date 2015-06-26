@@ -30,4 +30,4 @@ Time spent: 15 hours
 
 ### Walkthrough
 
-![Video Walkthrough]((https://github.com/kennyclin/Yelp/blob/master/demo.gif))
+![Video Walkthrough](https://github.com/kennyclin/Yelp/blob/master/demo.gif)
